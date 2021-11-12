@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_arg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:44:55 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/08 13:45:26 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/10 13:49:35 by andrew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int sizetab(char **tab)
+int	sizetab(char **tab)
 {
 	int	i;
 
@@ -48,19 +48,19 @@ int	check_isnum(char *arg)
 	return (1);
 }
 
-int check_arg(int size, char **arv)
+int	check_arg(int size, char **arv)
 {
-	int	i;
-	int	j;
-	char *arg;
+	int		i;
+	int		j;
+	char	*arg;
 
-	i = 1;
+	i = 0;
 	while (i < size)
 	{
 		if (check_isnum(arv[i]))
 		{
 			arg = arv[i];
-			j = 1;
+			j = 0;
 			while (j < size)
 			{
 				if (ft_strcmp(arg, arv[j]) == 0 && j != i)
