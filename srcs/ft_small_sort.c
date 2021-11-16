@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_small_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:24:48 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/16 13:53:22 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/16 23:37:48 by andrew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+static void use_duo(int move, int move2, t_pile *p)
+{
+	ft_use(move, p);
+	ft_use(move2, p);
+}
 
 static void	simple_sort(t_pile *p)
 {
@@ -37,29 +43,36 @@ static void	simple_sort(t_pile *p)
 		ft_use(RRA, p);
 }
 
-static void	complex_sort(t_pile *p)
+static void set_pile_sort(t_pile *p)
 {
 	if (p->size_a == 4)
 		ft_use(PB, p);
 	else
-	{
-		ft_use(PB, p);
-		ft_use(PB, p);
-	}
+		use_duo(PB, PB, p);
 	simple_sort(p);
+}
+
+static void	complex_sort(t_pile *p)
+{
+	set_pile_sort(p);
 	while (p->b)
 	{
 		if (p->b->content > max(p->a))
-		{
-			ft_use(PA, p);
-			ft_use(RA, p);
-		}
+			use_duo(PA, RA, p);
 		else if (p->b->content < min(p->a))
-			ft_use(PA, p);
-		else
 		{
-			
-		}ft_use(PA, p);
+			if (p->b->content != max(p->b) && max(p->b) < p->a->content)
+				use_duo(RB, PA, p);
+			else if (max(p->b) > p->b->content)
+			{
+				use_duo(RB, PA, p);
+				ft_use(SA, p);
+			}
+			else
+				ft_use(PA, p);
+		}
+		else
+			use_duo(PA, SA, p);
 	}
 }
 

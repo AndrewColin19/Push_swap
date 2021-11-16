@@ -6,7 +6,7 @@
 /*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:44:19 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/11 11:09:19 by andrew           ###   ########.fr       */
+/*   Updated: 2021/11/16 22:28:13 by andrew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_rb(t_pile *p)
 		while (p->b->next)
 			p->b = p->b->next;
 		p->b->next = tmp;
+		tmp->next = NULL;
 		p->b = first;
 	}
 }

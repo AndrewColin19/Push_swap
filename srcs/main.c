@@ -6,11 +6,26 @@
 /*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:48:18 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/11 00:46:38 by andrew           ###   ########.fr       */
+/*   Updated: 2021/11/16 23:51:05 by andrew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+void print_pile(t_pile *p)
+{
+	t_liste *lst;
+	int i;
+
+	lst = p->a;
+	i = 0;
+	while (lst)
+	{
+		printf("%i\n", lst->content);
+		lst = lst->next;
+		i++;
+	}
+}
 
 t_liste	*start(t_pile *p, int argc, char *argv[])
 {
@@ -47,6 +62,7 @@ int	main(int argc, char *argv[])
 			return (0);
 		}
 		ft_sort(&pile);
+		print_pile(&pile);
 	}
 	else
 		ft_putendl_fd("usage : ./push_swap <num 1> <num 2> <...>", 1);
