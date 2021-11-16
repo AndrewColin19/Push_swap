@@ -3,14 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 15:18:52 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/11 11:19:51 by andrew           ###   ########.fr       */
+/*   Updated: 2021/11/16 13:28:57 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+int	min(t_liste *l)
+{
+	t_liste	*lst;
+	int		min;
+
+	lst = l;
+	min = lst->content;
+	while (lst->next)
+	{
+		lst = lst->next;
+		if (min > lst->content)
+			min = lst->content;
+	}
+	return (min);
+}
+
+int	max(t_liste *l)
+{
+	t_liste	*lst;
+	int		max;
+
+	lst = l;
+	max = lst->content;
+	while (lst->next)
+	{
+		lst = lst->next;
+		if (max < lst->content)
+			max = lst->content;
+	}
+	return (max);
+}
 
 int	ft_issort(t_pile *p)
 {
@@ -32,7 +64,6 @@ void	ft_sort(t_pile *p)
 {
 	if (!ft_issort(p))
 	{
-		printf("passe\n");
 		if (p->size_a <= 5)
 			ft_small_sort(p);
 		/*else

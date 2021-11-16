@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 14:27:12 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/11 11:09:32 by andrew           ###   ########.fr       */
+/*   Updated: 2021/11/16 13:11:49 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	ft_use(int move, t_pile *p)
 {
 	if (move <= 4)
 		ft_move_one(move, p);
-	else if (move >= 5 && move <= 9)
+	else if (move >= 5 && move < 9)
 		ft_move_two(move, p);
 	else
 		ft_move_three(move, p);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:51:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/11 00:46:17 by andrew           ###   ########.fr       */
+/*   Updated: 2021/11/16 13:25:28 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int		check_arg(int size, char **arv);
 t_liste	*ft_parse_arg(char **tab, int size);
 void	ft_aff_move(int move);
 /*sort*/
+int		min(t_liste *l);
+int		max(t_liste *l);
 int		ft_issort(t_pile *p);
 void	ft_sort(t_pile *p);
 void	ft_use(int move, t_pile *p);
