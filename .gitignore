@@ -1,0 +1,5 @@
+checker_Mac
+*.o
+.DS_Store
+*.tmp
+push_swap
