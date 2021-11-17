@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 15:18:52 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/16 13:28:57 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/17 14:28:38 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,30 @@ int	ft_issort(t_pile *p)
 	return (1);
 }
 
+int	ft_get_index(t_pile *p, int val)
+{
+	t_liste	*lst;
+	int		i;
+
+	i = 0;
+	lst = p->a;
+	while (lst)
+	{
+		if (lst->content == val)
+			return (i);
+		lst = lst->next;
+		i++;
+	}
+	return (-1);
+}
+
 void	ft_sort(t_pile *p)
 {
 	if (!ft_issort(p))
 	{
 		if (p->size_a <= 5)
 			ft_small_sort(p);
-		/*else
-			ft_big_sort();*/
+		else
+			ft_big_sort(p);
 	}
 }

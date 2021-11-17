@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:51:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/16 13:25:28 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/17 15:25:00 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,13 @@ void	ft_aff_move(int move);
 /*sort*/
 int		min(t_liste *l);
 int		max(t_liste *l);
+int		ft_get_index(t_pile *p, int val);
+void	ft_use_w(t_pile *p, int index);
 int		ft_issort(t_pile *p);
 void	ft_sort(t_pile *p);
 void	ft_use(int move, t_pile *p);
 void	ft_small_sort(t_pile *p);
+void	ft_big_sort(t_pile *p);
 /*fct tri*/
 void	ft_sa(t_pile *p);
 void	ft_sb(t_pile *p);

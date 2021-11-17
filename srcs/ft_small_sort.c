@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_small_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:24:48 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/16 23:37:48 by andrew           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:31:32 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-
-static void use_duo(int move, int move2, t_pile *p)
-{
-	ft_use(move, p);
-	ft_use(move2, p);
-}
 
 static void	simple_sort(t_pile *p)
 {
@@ -43,37 +37,30 @@ static void	simple_sort(t_pile *p)
 		ft_use(RRA, p);
 }
 
-static void set_pile_sort(t_pile *p)
-{
-	if (p->size_a == 4)
-		ft_use(PB, p);
-	else
-		use_duo(PB, PB, p);
-	simple_sort(p);
-}
-
 static void	complex_sort(t_pile *p)
 {
-	set_pile_sort(p);
-	while (p->b)
+	int	index;
+	int	i;
+	int t;
+	
+	if (p->size_a == 4)
+		i = 1;
+	else
+		i = 0;
+	t = i;
+	while (i < 2)
 	{
-		if (p->b->content > max(p->a))
-			use_duo(PA, RA, p);
-		else if (p->b->content < min(p->a))
-		{
-			if (p->b->content != max(p->b) && max(p->b) < p->a->content)
-				use_duo(RB, PA, p);
-			else if (max(p->b) > p->b->content)
-			{
-				use_duo(RB, PA, p);
-				ft_use(SA, p);
-			}
-			else
-				ft_use(PA, p);
-		}
-		else
-			use_duo(PA, SA, p);
+		index = ft_get_index(p, min(p->a));
+		ft_use_w(p, index);
+		if (ft_issort(p))
+			return ;
+		ft_use(PB, p);
+		i++;
 	}
+	simple_sort(p);
+	ft_use(PA, p);
+	if (t == 0)
+		ft_use(PA, p);
 }
 
 void	ft_small_sort(t_pile *p)
