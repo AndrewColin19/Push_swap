@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:24:48 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/17 16:31:32 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/18 16:42:08 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	simple_sort(t_pile *p)
 {
-	int a[3];
+	int	a[3];
 
 	a[0] = p->a->content;
 	a[1] = p->a->next->content;
@@ -41,8 +41,8 @@ static void	complex_sort(t_pile *p)
 {
 	int	index;
 	int	i;
-	int t;
-	
+	int	t;
+
 	if (p->size_a == 4)
 		i = 1;
 	else
@@ -50,8 +50,8 @@ static void	complex_sort(t_pile *p)
 	t = i;
 	while (i < 2)
 	{
-		index = ft_get_index(p, min(p->a));
-		ft_use_w(p, index);
+		index = ft_get_index(p->a, min(p->a));
+		ft_use_rot_a(p, index);
 		if (ft_issort(p))
 			return ;
 		ft_use(PB, p);

@@ -6,16 +6,32 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:48:18 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/17 15:51:59 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/18 14:40:01 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void print_pile(t_pile *p)
+void	lstclear(t_liste **lst)
 {
-	t_liste *lst;
-	int i;
+	t_liste	*next;
+
+	if (lst)
+	{
+		while (*lst)
+		{
+			next = (*lst)->next;
+			free(*lst);
+			(*lst) = next;
+		}
+		*lst = NULL;
+	}
+}
+
+void	print_pile(t_pile *p)
+{
+	t_liste	*lst;
+	int		i;
 
 	lst = p->a;
 	i = 0;
@@ -61,8 +77,9 @@ int	main(int argc, char *argv[])
 			ft_putendl_fd("Error", 1);
 			return (0);
 		}
+		pile.a = ft_replace_nb(&pile);
 		ft_sort(&pile);
-		//print_pile(&pile);
+		lstclear(&pile.a);
 	}
 	else
 		ft_putendl_fd("usage : ./push_swap <num 1> <num 2> <...>", 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_arg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:42:08 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/10 18:08:03 by andrew           ###   ########.fr       */
+/*   Updated: 2021/11/18 13:48:41 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_liste	*lstlast(t_liste *lst)
 
 t_liste	*newlst(int value)
 {
-	t_liste *lst;
+	t_liste	*lst;
 
 	lst = malloc(sizeof(t_liste));
 	lst->content = value;

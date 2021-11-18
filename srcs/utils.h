@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:51:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/17 15:25:00 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/18 16:42:35 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,17 @@ int		sizetab(char **tab);
 int		check_arg(int size, char **arv);
 t_liste	*ft_parse_arg(char **tab, int size);
 void	ft_aff_move(int move);
+void	lstclear(t_liste **lst);
+t_liste	*ft_replace_nb(t_pile *p);
+void	lstadd_back(t_liste **alst, t_liste *new);
+t_liste	*newlst(int value);
+t_liste	*lstlast(t_liste *lst);
 /*sort*/
+void	ft_use_rot_a(t_pile *p, int index);
+void	ft_use_rot_b(t_pile *p, int index);
 int		min(t_liste *l);
 int		max(t_liste *l);
-int		ft_get_index(t_pile *p, int val);
+int		ft_get_index(t_liste *l, int val);
 void	ft_use_w(t_pile *p, int index);
 int		ft_issort(t_pile *p);
 void	ft_sort(t_pile *p);

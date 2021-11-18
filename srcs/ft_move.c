@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 14:27:12 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/16 13:11:49 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/18 13:21:45 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_move_one(int move, t_pile *p)
 	else if (move == SS)
 	{
 		ft_ss(p);
-		ft_aff_move(SS);	
+		ft_aff_move(SS);
 	}
 	else if (move == PA)
 	{
@@ -77,7 +77,7 @@ void	ft_move_two(int move, t_pile *p)
 	else if (move == RB)
 	{
 		ft_rb(p);
-		ft_aff_move(RB);	
+		ft_aff_move(RB);
 	}
 	else if (move == RR)
 	{
@@ -101,7 +101,7 @@ void	ft_move_three(int move, t_pile *p)
 	else if (move == RRR)
 	{
 		ft_rrr(p);
-		ft_aff_move(RRR);	
+		ft_aff_move(RRR);
 	}
 }
 

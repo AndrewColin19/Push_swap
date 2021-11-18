@@ -9,7 +9,8 @@ SRCS =  srcs/main.c srcs/ft_check_arg.c \
 		srcs/ft_rb.c srcs/ft_rr.c \
 		srcs/ft_rra.c srcs/ft_rrb.c \
 		srcs/ft_rrr.c srcs/ft_sort.c \
-		srcs/ft_small_sort.c srcs/ft_big_sort.c
+		srcs/ft_small_sort.c srcs/ft_big_sort.c \
+		srcs/ft_replace_arg.c srcs/ft_rotate_pile.c
 
 OBJS = ${SRCS:.c=.o}
 
