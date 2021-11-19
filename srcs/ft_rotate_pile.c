@@ -6,11 +6,41 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 15:03:02 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/18 17:05:24 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/19 15:45:16 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+void	ft_rotate_inf_b(t_pile *p, int value)
+{
+	int		inf;
+	int		diff;
+	int		val;
+	t_liste	*lst;
+	
+	lst = p->b;
+	val = 0;
+	inf = 0;
+	while (lst)
+	{
+		diff = lst->content - value;
+		if (diff < 0)
+		{
+			if (diff > inf || inf == 0)
+			{
+				inf = diff;
+				val = lst->content;
+			}
+		}
+		lst = lst->next;
+	}
+	if (val == 0)
+		ft_use_rot_b(p, ft_get_index(p->b, min(p->b)));
+	else
+		ft_use_rot_b(p, ft_get_index(p->b, val));
+}
+
 
 void	ft_use_rot_a(t_pile *p, int index)
 {

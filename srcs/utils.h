@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:51:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/18 16:42:35 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/19 14:42:28 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ t_liste	*lstlast(t_liste *lst);
 /*sort*/
 void	ft_use_rot_a(t_pile *p, int index);
 void	ft_use_rot_b(t_pile *p, int index);
+void	ft_rotate_inf_b(t_pile *p, int value);
 int		min(t_liste *l);
 int		max(t_liste *l);
 int		ft_get_index(t_liste *l, int val);

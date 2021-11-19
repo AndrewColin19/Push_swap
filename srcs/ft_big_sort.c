@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:13:17 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/18 17:38:59 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/19 15:48:03 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ void	check_pile_b(t_pile *p)
 	}
 	else
 	{
-		if (p->a->content > max(p->b))
-			ft_use_rot_b(p, ft_get_index(p->b, min(p->b)));
-		else if (p->a->content < min(p->b))
-			ft_use_rot_b(p, ft_get_index(p->b, max(p->b)));
+		ft_rotate_inf_b(p, p->a->content);
 		ft_use(PB, p);
 	}
 }
@@ -112,5 +109,4 @@ void	ft_big_sort(t_pile *p)
 		ft_use_rot_b(p, ft_get_index(p->b, max(p->b)));
 		ft_use(PA, p);
 	}
-		
 }
