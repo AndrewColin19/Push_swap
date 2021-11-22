@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:51:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/19 14:42:28 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/22 15:39:50 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ typedef struct s_pile
 	int		size_a;
 	t_liste	*b;
 	int		size_b;
+	int		nchunk;
+	int		limit;
+	int		max;
 }	t_pile;
 
 int		sizetab(char **tab);

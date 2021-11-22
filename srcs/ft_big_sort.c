@@ -6,24 +6,24 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:13:17 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/19 15:48:03 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/22 15:57:07 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int scan_up(t_pile *p, int limit)
+int	scan_up(t_pile *p, int limit)
 {
 	int		mi;
 	int		index;
 	t_liste	*lst;
 
-	mi = min(p->a);
+	mi = limit - p->limit;
 	index = 0;
 	lst = p->a;
 	while (lst)
 	{
-		if (lst->content >= mi && lst->content <= limit)
+		if (lst->content > mi && lst->content <= limit)
 			return (index);
 		index++;
 		lst = lst->next;
@@ -31,20 +31,20 @@ int scan_up(t_pile *p, int limit)
 	return (index);
 }
 
-int scan_down(t_pile *p, int limit)
+int	scan_down(t_pile *p, int limit)
 {
 	int		mi;
 	int		index;
 	int		index_save;
 	t_liste	*lst;
 
-	mi = min(p->a);
+	mi = limit - p->limit;
 	index = 0;
 	index_save = 0;
 	lst = p->a;
 	while (lst)
 	{
-		if (lst->content >= mi && lst->content <= limit)
+		if (lst->content > mi && lst->content <= limit)
 			index_save = index;
 		index++;
 		lst = lst->next;
@@ -78,17 +78,20 @@ void	get_chunck(t_pile *p, int nb_chunk)
 	t_liste	*lst;
 
 	size_chunk = 0;
-	limit = (20 * nb_chunk);
+	limit = (p->limit * nb_chunk);
 	lst = p->a;
-	while (size_chunk < 21 && p->size_a != 0)
+	while (size_chunk < p->limit && p->size_a != 0)
 	{
 		index_d = scan_down(p, limit);
 		index_u = scan_up(p, limit);
-		if ((p->size_a - index_d - 1) < index_u)
+		if (index_u == index_d)
+			ft_use_rot_a(p, index_u);
+		else if ((p->max - 1) - index_d < index_u)
 			ft_use_rot_a(p, index_d);
-		else if (index_u > (p->size_a - index_d - 1))
+		else
 			ft_use_rot_a(p, index_u);
 		check_pile_b(p);
+		size_chunk++;
 	}
 }
 

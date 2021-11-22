@@ -6,11 +6,22 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:48:18 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/18 14:40:01 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/22 15:40:15 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+void	set_nb_chunk(t_pile *p)
+{	
+	if (p->size_a <= 100)
+		p->nchunk = 5;
+	else if (p->size_a >= 100 && p->size_a <= 500)
+		p->nchunk = 11;
+	else
+		p->nchunk = p->size_a / 15;
+	p->limit = p->size_a / p->nchunk;
+}
 
 void	lstclear(t_liste **lst)
 {
@@ -25,21 +36,6 @@ void	lstclear(t_liste **lst)
 			(*lst) = next;
 		}
 		*lst = NULL;
-	}
-}
-
-void	print_pile(t_pile *p)
-{
-	t_liste	*lst;
-	int		i;
-
-	lst = p->a;
-	i = 0;
-	while (lst)
-	{
-		printf("%i\n", lst->content);
-		lst = lst->next;
-		i++;
 	}
 }
 
@@ -62,6 +58,7 @@ t_liste	*start(t_pile *p, int argc, char *argv[])
 		return (0);
 	p->size_a = size;
 	p->size_b = 0;
+	p->max = size;
 	return (ft_parse_arg(tab, size));
 }
 
@@ -78,6 +75,7 @@ int	main(int argc, char *argv[])
 			return (0);
 		}
 		pile.a = ft_replace_nb(&pile);
+		set_nb_chunk(&pile);
 		ft_sort(&pile);
 		lstclear(&pile.a);
 	}
