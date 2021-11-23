@@ -6,11 +6,52 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:24:48 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/18 16:42:08 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/23 14:35:05 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+static void	rot_a(t_pile *p, int index)
+{
+	if (index <= p->size_a / 2)
+	{
+		while (index)
+		{
+			ft_use(RA, p);
+			index--;
+		}
+	}
+	else
+	{
+		while (index < p->size_a)
+		{
+			ft_use(RRA, p);
+			index++;
+		}
+	}
+}
+
+static int	sup_of(t_pile *p, int value)
+{
+	t_liste	*lst;
+
+	lst = p->a;
+	while (lst)
+	{
+		if (lst->content == value + 1)
+			return (ft_get_index(p->a, lst->content));
+		lst = lst->next;
+	}
+	lst = p->a;
+	while (lst)
+	{
+		if (lst->content == value + 2)
+			return (ft_get_index(p->a, lst->content));
+		lst = lst->next;
+	}
+	return (-1);
+}
 
 static void	simple_sort(t_pile *p)
 {
@@ -40,27 +81,20 @@ static void	simple_sort(t_pile *p)
 static void	complex_sort(t_pile *p)
 {
 	int	index;
-	int	i;
-	int	t;
 
-	if (p->size_a == 4)
-		i = 1;
-	else
-		i = 0;
-	t = i;
-	while (i < 2)
-	{
-		index = ft_get_index(p->a, min(p->a));
-		ft_use_rot_a(p, index);
-		if (ft_issort(p))
-			return ;
+	while (p->size_a > 3)
 		ft_use(PB, p);
-		i++;
-	}
 	simple_sort(p);
-	ft_use(PA, p);
-	if (t == 0)
+	while (p->size_b > 0)
+	{
+		index = sup_of(p, p->b->content);
+		if (index == -1)
+			rot_a(p, ft_get_index(p->a, min(p->a)));
+		else
+			rot_a(p, index);
 		ft_use(PA, p);
+	}
+	rot_a(p, ft_get_index(p->a, min(p->a)));
 }
 
 void	ft_small_sort(t_pile *p)

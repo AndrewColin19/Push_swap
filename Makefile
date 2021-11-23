@@ -29,6 +29,6 @@ fclean: clean
 
 clean:
 	${MAKE} clean -C ./libft
-	rm -f ${NAME} ${OBJS}
+	rm -f ${OBJS}
 
 re: fclean clean all

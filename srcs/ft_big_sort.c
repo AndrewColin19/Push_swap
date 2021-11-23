@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:13:17 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/22 15:57:07 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/23 13:06:30 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,9 @@ void	get_chunck(t_pile *p, int nb_chunk)
 	int		index_d;
 	int		index_u;
 	int		limit;
-	t_liste	*lst;
 
 	size_chunk = 0;
 	limit = (p->limit * nb_chunk);
-	lst = p->a;
 	while (size_chunk < p->limit && p->size_a != 0)
 	{
 		index_d = scan_down(p, limit);
@@ -97,10 +95,8 @@ void	get_chunck(t_pile *p, int nb_chunk)
 
 void	ft_big_sort(t_pile *p)
 {
-	t_liste	*lst;
 	int		nb_chunk;
 
-	lst = p->a;
 	nb_chunk = 1;
 	while (p->size_a != 0)
 	{
