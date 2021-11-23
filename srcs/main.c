@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:48:18 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/22 15:40:15 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/23 14:55:05 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,4 @@ int	main(int argc, char *argv[])
 		ft_sort(&pile);
 		lstclear(&pile.a);
 	}
-	else
-		ft_putendl_fd("usage : ./push_swap <num 1> <num 2> <...>", 1);
 }
