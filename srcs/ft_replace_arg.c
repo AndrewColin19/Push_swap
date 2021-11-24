@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 13:48:34 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/22 15:55:38 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/24 12:55:16 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,18 @@ int	ft_get_index_min(int *tab, int size)
 	return (index_save);
 }
 
-int	ft_get_max(int *tab, int size)
+int	ft_is_all_max(int *tab, int size, int max)
 {
-	int	index;
-	int	min;
+	int	i;
 
-	index = 0;
-	min = tab[0];
-	while (index < size)
+	i = 0;
+	while (i < size)
 	{
-		if (min < tab[index])
-			min = tab[index];
-		index++;
+		if (max != tab[i])
+			return (0);
+		i++;
 	}
-	return (min);
+	return (1);
 }
 
 int	*ft_nb_in_tab(t_pile *p)
@@ -67,23 +65,26 @@ int	*ft_nb_in_tab(t_pile *p)
 	return (tab);
 }
 
-int	*ft_tab_replace(t_pile *p)
+int	*ft_tab_replace(t_pile *p, int *tab)
 {
-	int	*tab;
 	int	*lst;
-	int	max;
-	int	index;
+	int	m;
+	int	i;
+	int	i_max;
 	int	num;
 
-	tab = ft_nb_in_tab(p);
 	lst = ft_calloc(sizeof(int), p->size_a);
 	num = 1;
-	max = ft_get_max(tab, p->size_a);
+	m = max(p->a);
+	i_max = ft_get_index(p->a, m);
 	while (num <= p->size_a)
 	{
-		index = ft_get_index_min(tab, p->size_a);
-		lst[index] = num;
-		tab[index] = max + 1;
+		i = ft_get_index_min(tab, p->size_a);
+		if (ft_is_all_max(tab, p->size_a, m))
+			lst[i_max] = num;
+		else
+			lst[i] = num;
+		tab[i] = m;
 		num++;
 	}
 	free(tab);
@@ -96,7 +97,7 @@ t_liste	*ft_replace_nb(t_pile *p)
 	int		i;
 	int		*tab;
 
-	tab = ft_tab_replace(p);
+	tab = ft_tab_replace(p, ft_nb_in_tab(p));
 	i = 0;
 	lstclear(&p->a);
 	start = newlst(tab[i]);

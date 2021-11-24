@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:52:04 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/08 12:30:00 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/24 12:41:48 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static int	ft_overflow(int neg)
  */
 int	ft_atoi(const char *nptr)
 {	
-	int		neg;
-	long	num;
+	int	neg;
+	int	num;
 
 	num = 0;
 	neg = 1;

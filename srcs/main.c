@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:48:18 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/23 14:55:05 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/24 13:32:05 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	set_nb_chunk(t_pile *p)
 	if (p->size_a <= 100)
 		p->nchunk = 5;
 	else if (p->size_a >= 100 && p->size_a <= 500)
-		p->nchunk = 11;
+		p->nchunk = 12;
 	else
 		p->nchunk = p->size_a / 15;
 	p->limit = p->size_a / p->nchunk;
