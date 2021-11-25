@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:51:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/25 16:23:27 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/25 17:55:15 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_pile
 
 int		sizetab(char **tab);
 int		check_arg(int size, char **arv);
-t_liste	*ft_parse_arg(char **tab, int size);
+t_liste	*ft_parse_arg(char **tab, int size, int argc);
 void	ft_aff_move(int move);
 t_liste	*ft_replace_nb(t_pile *p);
 void	lstadd_back(t_liste **alst, t_liste *new);
@@ -79,7 +79,7 @@ void	ft_rra(t_pile *p);
 void	ft_rrb(t_pile *p);
 void	ft_rrr(t_pile *p);
 /*free_utils*/
-int		ft_free_tab(char **tab);
+t_liste *ft_free_tab(char **tab, int argc);
 void	lstclear(t_liste **lst);
 
 #endif

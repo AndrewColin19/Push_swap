@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:48:18 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/25 16:24:50 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/25 17:55:02 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ t_liste	*start(t_pile *p, int argc, char *argv[])
 		size = sizetab(tab);
 	}
 	if (!check_arg(size, tab))
-		return (ft_free_tab(tab));
+		return (ft_free_tab(tab, argc));
 	p->size_a = size;
 	p->size_b = 0;
 	p->max = size;
-	return (ft_parse_arg(tab, size));
+	return (ft_parse_arg(tab, size, argc));
 }
 
 int	main(int argc, char *argv[])
@@ -56,7 +56,6 @@ int	main(int argc, char *argv[])
 		if (pile.a == NULL)
 		{
 			ft_putendl_fd("Error", 1);
-			while (1);
 			return (0);
 		}
 		pile.a = ft_replace_nb(&pile);

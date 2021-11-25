@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:42:08 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/25 16:27:41 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/25 17:55:29 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	lstadd_back(t_liste **alst, t_liste *new)
 	lst->next = new;
 }
 
-t_liste	*ft_parse_arg(char **tab, int size)
+t_liste	*ft_parse_arg(char **tab, int size, int argc)
 {
 	t_liste	*start;
 	int		i;
@@ -56,6 +56,6 @@ t_liste	*ft_parse_arg(char **tab, int size)
 		lstadd_back(&start, newlst(ft_atoi(tab[i])));
 		i++;
 	}
-	ft_free_tab(tab);
+	ft_free_tab(tab, argc);
 	return (start);
 }
