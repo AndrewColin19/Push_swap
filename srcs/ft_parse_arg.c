@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:42:08 by andrew            #+#    #+#             */
-/*   Updated: 2021/11/18 13:48:41 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/25 16:27:41 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ t_liste	*ft_parse_arg(char **tab, int size)
 		lstadd_back(&start, newlst(ft_atoi(tab[i])));
 		i++;
 	}
+	ft_free_tab(tab);
 	return (start);
 }

@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:48:18 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/24 13:32:05 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/25 16:24:50 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,6 @@ void	set_nb_chunk(t_pile *p)
 	else
 		p->nchunk = p->size_a / 15;
 	p->limit = p->size_a / p->nchunk;
-}
-
-void	lstclear(t_liste **lst)
-{
-	t_liste	*next;
-
-	if (lst)
-	{
-		while (*lst)
-		{
-			next = (*lst)->next;
-			free(*lst);
-			(*lst) = next;
-		}
-		*lst = NULL;
-	}
 }
 
 t_liste	*start(t_pile *p, int argc, char *argv[])
@@ -55,7 +39,7 @@ t_liste	*start(t_pile *p, int argc, char *argv[])
 		size = sizetab(tab);
 	}
 	if (!check_arg(size, tab))
-		return (0);
+		return (ft_free_tab(tab));
 	p->size_a = size;
 	p->size_b = 0;
 	p->max = size;
@@ -72,6 +56,7 @@ int	main(int argc, char *argv[])
 		if (pile.a == NULL)
 		{
 			ft_putendl_fd("Error", 1);
+			while (1);
 			return (0);
 		}
 		pile.a = ft_replace_nb(&pile);
