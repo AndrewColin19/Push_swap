@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:51:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/25 17:55:15 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/30 12:25:46 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ft_rra(t_pile *p);
 void	ft_rrb(t_pile *p);
 void	ft_rrr(t_pile *p);
 /*free_utils*/
-t_liste *ft_free_tab(char **tab, int argc);
+t_liste	*ft_free_tab(char **tab, int argc);
 void	lstclear(t_liste **lst);
 
 #endif

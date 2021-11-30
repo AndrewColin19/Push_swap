@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:44:55 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/24 12:57:23 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/30 12:25:12 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	check_isnum(char *arg)
 			return (0);
 		i++;
 	}
-	if (ft_strlen(arg) > 9 && ft_atoi(arg) == -1)
+	if ((ft_strlen(arg) > 9 && ft_atoi(arg) == -1)
+		|| (ft_strlen(arg) > 9 && ft_atoi(arg) == 0))
 		return (0);
 	return (1);
 }
